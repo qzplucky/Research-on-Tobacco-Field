@@ -1,0 +1,17 @@
+_base_: './deepglobe.yml'
+
+model:
+  type: UNet
+  backbone:
+    type: STDC2
+    pretrained: https://bj.bcebos.com/paddleseg/dygraph/PP_STDCNet2.tar.gz
+
+loss:
+  types:
+    - type: OhemCrossEntropyLoss
+      min_kept: 260000   # batch_size * 1024 * 1024 // 16
+    - type: OhemCrossEntropyLoss
+      min_kept: 260000
+    - type: OhemCrossEntropyLoss
+      min_kept: 260000
+  coef: [1, 1, 1]

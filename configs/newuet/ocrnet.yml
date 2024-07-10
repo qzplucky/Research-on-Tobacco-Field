@@ -1,0 +1,53 @@
+batch_size: 4
+iters: 80000
+
+train_dataset:
+  type: DeepGlobe
+  dataset_root: data/dataset
+  num_classes: 2
+  mode: train
+  train_path: data/dataset/s146_rgb_train.txt
+  transforms:
+    - type: LabelBinaryzation
+    - type: RandomPaddingCrop
+      crop_size: [1024, 1024]
+    - type: Normalize
+
+val_dataset:
+  type: DeepGlobe
+  dataset_root: data/dataset
+  num_classes: 2
+  mode: val
+  val_path: data/dataset/s146_rgb_val.txt
+  transforms:
+    - type: LabelBinaryzation
+    - type: Normalize
+
+optimizer:
+  type: sgd
+  momentum: 0.9
+  weight_decay: 4.0e-5
+
+lr_scheduler:
+  type: PolynomialDecay
+  learning_rate: 0.039
+  end_lr: 0
+  power: 0.9
+  warmup_iters: 1000
+  warmup_start_lr: 1.0e-5
+
+loss:
+  types:
+    - type: CrossEntropyLoss
+  coef: [1, 0.4]
+
+
+model:
+  type: PSPNet
+  backbone:
+    type: ResNet50_vd
+    output_stride: 2
+    pretrained: https://bj.bcebos.com/paddleseg/dygraph/resnet50_vd_ssld_v2.tar.gz
+  enable_auxiliary_loss: True
+  align_corners: False
+  pretrained: null

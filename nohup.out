@@ -1,0 +1,26 @@
+/home/zj/anaconda3/envs/paddle/lib/python3.9/site-packages/setuptools/sandbox.py:13: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  import pkg_resources
+/home/zj/anaconda3/envs/paddle/lib/python3.9/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('mpl_toolkits')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+/home/zj/anaconda3/envs/paddle/lib/python3.9/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('google')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+/home/zj/anaconda3/envs/paddle/lib/python3.9/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('ruamel')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+/home/zj/Orgseg/PaddleSeg/paddleseg/models/losses/decoupledsegnet_relax_boundary_loss.py:19: DeprecationWarning: Please use `shift` from the `scipy.ndimage` namespace, the `scipy.ndimage.interpolation` namespace is deprecated.
+  from scipy.ndimage.interpolation import shift
+/home/zj/Orgseg/PaddleSeg/paddleseg/transforms/functional.py:18: DeprecationWarning: Please use `distance_transform_edt` from the `scipy.ndimage` namespace, the `scipy.ndimage.morphology` namespace is deprecated.
+  from scipy.ndimage.morphology import distance_transform_edt
+usage: train.py [-h] [--config CFG] [--iters ITERS] [--batch_size BATCH_SIZE]
+                [--learning_rate LEARNING_RATE]
+                [--save_interval SAVE_INTERVAL] [--resume_model RESUME_MODEL]
+                [--save_dir SAVE_DIR]
+                [--keep_checkpoint_max KEEP_CHECKPOINT_MAX]
+                [--num_workers NUM_WORKERS] [--do_eval]
+                [--log_iters LOG_ITERS] [--use_vdl] [--seed SEED]
+                [--precision {fp32,fp16}] [--amp_level {O1,O2}]
+                [--data_format DATA_FORMAT]
+                [--profiler_options PROFILER_OPTIONS] [--device DEVICE]
+train.py: error: unrecognized arguments: --use.log

@@ -1,0 +1,43 @@
+batch_size: 2 # total: 4*4
+iters: 160000
+
+optimizer:
+  type: sgd
+  momentum: 0.9
+  weight_decay: 5.0e-4
+
+lr_scheduler:
+  type: PolynomialDecay
+  learning_rate: 0.01
+  end_lr: 0
+  power: 0.9
+  warmup_iters: 1000
+  warmup_start_lr: 1.0e-5
+
+
+loss:
+  types:
+    - type: CrossEntropyLoss
+  coef: [1]
+
+train_dataset:
+  type: DeepGlobe
+  dataset_root: data/dataset
+  num_classes: 2
+  mode: train
+  train_path: data/dataset/s146_rgb_train.txt
+  transforms:
+  - type: LabelBinaryzation
+  - type: RandomPaddingCrop
+    crop_size: [1024, 1024]
+  - type: Normalize
+
+val_dataset:
+  type: DeepGlobe
+  dataset_root: data/dataset
+  num_classes: 2
+  mode: val
+  val_path: data/dataset/s146_rgb_val.txt
+  transforms:
+  - type: LabelBinaryzation
+  - type: Normalize
